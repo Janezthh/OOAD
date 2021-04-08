@@ -1,0 +1,25 @@
+@startuml
+left to right direction
+
+:Me:as me
+(SmartPhone) as phone
+(Application) as app
+(Delivery to the wrong address) as pb1
+(Out of stock)as pb2
+rectangle OnlineShopping{
+usecase "OpenApp" as c1
+usecase "Select a product" as c2
+usecase "Submit"as c3
+usecase "Waiting for delivery"as c4
+usecase "Received the product"as c5
+}
+me --> phone
+phone --> app
+app --> c1
+c1 --> c2
+c2 --> c3
+c3 --> c4
+c4 --> c5
+pb1 --|> c4#green;line.dashed;text:green : extends
+pb2 --|> c2#green;line.dashed;text:green : extends
+@enduml
